@@ -1,11 +1,13 @@
-import './App.css'
 import tasks from './tasks.js'
 
 function App() {
-  console.log(tasks)
+  const tasksInProgress = tasks.filter((task) => task.state === "backlog" || task.state === "in_progress")
+  const doneTasks = tasks.filter((task) => task.state === "completed")
+  console.log(tasksInProgress)
+
   return (
     <>
-      <header>
+      <header className='main-header'>
         <div className="container">
           <h1>Task manager</h1>
         </div>
@@ -13,24 +15,34 @@ function App() {
       <section>
         <div className='container'>
           <h2 className='task-title'>
-            Current task (n)
+            Current tasks: {tasksInProgress.length}
           </h2>
         </div>
         <div className="container">
           <ul className='task-list'>
-            <li className='task-item'>task</li>
+            {
+              tasksInProgress.map((task) =>
+                <li key={task.id} className='task-item'>
+                  ciao
+                </li>)
+            }
           </ul>
         </div>
       </section>
       <section>
         <div className='container'>
           <h2 className='task-title'>
-            Current task (n)
+            Completed tasks: ({doneTasks.length})
           </h2>
         </div>
         <div className="container">
           <ul className='task-list'>
-            <li className='task-item'>task</li>
+            {
+              doneTasks.map((task) =>
+                <li key={task.id} className='task-item'>
+                  ciao
+                </li>)
+            }
           </ul>
         </div>
       </section>

@@ -4,7 +4,18 @@
   box-sizing: border-box;
 }
 
+ul,
+ol {
+  list-style: none;
+  color: currentColor;
+}
+
 .container {
   max-width: 1024px;
   margin: 0 auto;
+  padding: 10px;
+}
+
+.main-header {
+  background-color: aquamarine;
 }
