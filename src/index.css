@@ -19,3 +19,7 @@ ol {
 .main-header {
   background-color: aquamarine;
 }
+
+.task-item {
+  display: flex;
+}

@@ -3,7 +3,6 @@ import tasks from './tasks.js'
 function App() {
   const tasksInProgress = tasks.filter((task) => task.state === "backlog" || task.state === "in_progress")
   const doneTasks = tasks.filter((task) => task.state === "completed")
-  console.log(tasksInProgress)
 
   return (
     <>
@@ -23,7 +22,14 @@ function App() {
             {
               tasksInProgress.map((task) =>
                 <li key={task.id} className='task-item'>
-                  ciao
+                  <ul className='task-detail'>
+                    <li>{task.title}</li>
+                    <li>Priority: {task.priority}</li>
+                    <li>Est. time: {task.estimatedTime}</li>
+                  </ul>
+                  <div className="status">
+                    <p>{task.state}</p>
+                  </div>
                 </li>)
             }
           </ul>
@@ -40,7 +46,14 @@ function App() {
             {
               doneTasks.map((task) =>
                 <li key={task.id} className='task-item'>
-                  ciao
+                  <ul className='task-detail'>
+                    <li>{task.title}</li>
+                    <li>Priority: {task.priority}</li>
+                    <li>Est. time: {task.estimatedTime}</li>
+                  </ul>
+                  <div className="status">
+                    <p>{task.state}</p>
+                  </div>
                 </li>)
             }
           </ul>
