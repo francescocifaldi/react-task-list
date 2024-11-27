@@ -20,17 +20,29 @@ function App() {
         <div className="container">
           <ul className='task-list'>
             {
-              tasksInProgress.map((task) =>
-                <li key={task.id} className='task-item'>
-                  <ul className='task-detail'>
-                    <li>{task.title}</li>
-                    <li>Priority: {task.priority}</li>
-                    <li>Est. time: {task.estimatedTime}</li>
-                  </ul>
-                  <div className="status">
-                    <p>{task.state}</p>
-                  </div>
-                </li>)
+              tasksInProgress.map((task) => {
+                let status = ''
+                switch (task.state) {
+                  case 'backlog':
+                    status = 'Backlog'
+                    break;
+                  case 'in_progress':
+                    status = 'In progress'
+                    break;
+                }
+                return (
+                  <li key={task.id} className='task-item'>
+                    <ul className='task-detail'>
+                      <li><h3>{task.title}</h3></li>
+                      <li>Priority: {task.priority}</li>
+                      <li>Est. time: {task.estimatedTime}</li>
+                    </ul>
+                    <div className="status">
+                      <p>{status}</p>
+                    </div>
+                  </li>
+                )
+              })
             }
           </ul>
         </div>
@@ -44,17 +56,20 @@ function App() {
         <div className="container">
           <ul className='task-list'>
             {
-              doneTasks.map((task) =>
-                <li key={task.id} className='task-item'>
-                  <ul className='task-detail'>
-                    <li>{task.title}</li>
-                    <li>Priority: {task.priority}</li>
-                    <li>Est. time: {task.estimatedTime}</li>
-                  </ul>
-                  <div className="status">
-                    <p>{task.state}</p>
-                  </div>
-                </li>)
+              doneTasks.map((task) => {
+                return (
+                  <li key={task.id} className='task-item'>
+                    <ul className='task-detail'>
+                      <li><h3>{task.title}</h3></li>
+                      <li>Priority: {task.priority}</li>
+                      <li>Est. time: {task.estimatedTime}</li>
+                    </ul>
+                    <div className="status">
+                      <p>{task.state}</p>
+                    </div>
+                  </li>
+                )
+              })
             }
           </ul>
         </div>

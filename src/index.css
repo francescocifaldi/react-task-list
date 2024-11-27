@@ -20,6 +20,24 @@ ol {
   background-color: aquamarine;
 }
 
+.task-list {
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
 .task-item {
   display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.status {
+  background-color: orange;
+  color: white;
+  display: block;
+  font-weight: bold;
+  line-height: 2rem;
+  padding: 0 10px;
 }
